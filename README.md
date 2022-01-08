@@ -106,7 +106,7 @@ Our Logistic Regression model was able to predict the non popular songs well but
 The second model we used are decision trees. Decision Trees looks at the data and classifies the data to 1 or more classes. It filters the data by certain features. The issue with this model is that it prone to overfitting as we can see on our classification report. To get a more accurate result we use GridSearch for Hyperparameter Tuning.
 
 <img src='images/decision_1.png'>
-<img src='images/decision_confusion1'>
+<img src='images/decision_confusion1.png'>
 
 Our training accuracy score is 1 while our test accuracy score is .79 which is a sign of overfitting.
 
