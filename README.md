@@ -137,7 +137,7 @@ Accuracy Score: .86
 Extreme Gradient Boosting
 
 <img src='images/XGBoost1.PNG'>
-<img src='images/XGBoost_confusion.png'>
+<img src='images/XGBoost1_confusion.png'>
 
 Accuracy Score: .86
 
