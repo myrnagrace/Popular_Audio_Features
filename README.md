@@ -164,11 +164,13 @@ AUC = 1 means that the classifier is able to perfectly distinguish all the Posit
 
 <img src='images/ROC_logtest.png'>
 
-The AUC score for our Decision Tree Model is 0.7878777542642218
-The AUC score for our Tuned Decision Tree Model is 0.8443624822952769
-The AUC score for our Random Forest Tree Model is 0.8357209562284028
-The AUC score for our Tuned Random Forest Tree Model is 0.83723003106272
-The AUC score for our XGBoost Model is 0.8409138333759232
+## AUC Score
+
+- AUC score for our Decision Tree Model is 0.7878777542642218
+- AUC score for our Tuned Decision Tree Model is 0.8443624822952769
+- AUC score for our Random Forest Tree Model is 0.8357209562284028
+- AUC score for our Tuned Random Forest Tree Model is 0.83723003106272
+- AUC score for our XGBoost Model is 0.8409138333759232
 
 # Conclusion
 
