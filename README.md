@@ -57,7 +57,7 @@ Below are the meaning behind Spotify's Audio Features based on their Web API aud
 ### Data Preparation
 Before running our models, we need to preprocess our data to see if there are necessary data cleaning, dtype conversions, and feature engineering to be made.
 
-#### Popularity
+### Popularity
 - Convert dtype from float to int
 - Set the target classifier 'popular_song': Popularity >= 50: 1 and Popularity < 50: 0
 - Drop popularity column
@@ -73,7 +73,7 @@ Before running our models, we need to preprocess our data to see if there are ne
 - Set Major:1, Minor:0
 - Eventually we drop this feature
 
-Then we dropped features that are not necessary for predictive modeling.
+As a result from preprocessing we dropped 19% of our data.
 
 ## Data Visualization of Preprocessed Data
 
@@ -87,9 +87,101 @@ Then we dropped features that are not necessary for predictive modeling.
 First we train test split the model to create a set of train and test data then One Hot Encode the object features (music_genre and key).
 Once we create a processed train test split is created we are ready to build models.
 
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- XGBoost
+
+The model that performed the best is Decision Tree with Hyperparameter Tuning.
+
+## Logistic Regression
+Our first model will be logistic regression. Logistic regression's theory is similar to linear regression except it is transformed in a way that the outcome takes a value between 0 and 1. What our logistic model performs is predicting the probability that a song will be popular (P>50) or a song won't be popular (P<50)
+
+<img src='images/logreg_class.png'>
+<img src='images/logreg_confusion.png'>
+
+Our Logistic Regression model was able to predict the non popular songs well but not the popular song so we moved on to our second model.
+
+## Decision Tree
+The second model we used are decision trees. Decision Trees looks at the data and classifies the data to 1 or more classes. It filters the data by certain features. The issue with this model is that it prone to overfitting as we can see on our classification report. To get a more accurate result we use GridSearch for Hyperparameter Tuning.
+
+<img src='images/decision_1.png'>
+<img src='images/decision_confusion1'>
+
+Our training accuracy score is 1 while our test accuracy score is .79 which is a sign of overfitting.
+
+## Hyperparameter Tuning Decision Tree
+
+<img src='images/decision2.png'>
+<img src='images/decision_confusion2.png'>
+
+Accuracy Score: .87
+
+## Random Forest
+Random Forest uses bagging and feature randomness when building each individual decision trees.
+
+<img src='images/randomforest1.png'>
+<img src='images/randomforest_confusion.png'>
+
+Accuracy Score: .86
+
+## Hyperparameter Tuning Random Forest
+There wasn't much a difference when tuning the random forest tree since it stuck with the basic parameters from our original random forest model.
+
+<img src='images/randomforest2.png'>
+<img src='images/randomforest_confusion2.png'>
+
+Accuracy Score: .86 
+
+## XGBoost
+Extreme Gradient Boosting
+
+<img src='images/XGBoost1.png'>
+<img src='images/XGBoost_confusion.png'>
+
+Accuracy Score: .86
+
+I opted to not tune our XGBoost model since our model performed well.
+
+## Feature Importance
+
+<img src='images/dt_feature1.png'>
+
+<img src='images/decision_tuned.png'>
+
+<img src='images/randomfeature2.png'>
+
+<img src='images/XGBoost_feature.png'>
 
 
+## ROC & AUC
 
+The **Receiver Operating Characteristic (ROC)** is known for giving us a visual of the trade off between the **false positive** and **true positive rates**. While the Area Under Curve is the metric to compare the classes which is the summary to compare the ROC curve. 
 
+AUC = 1 means that the classifier is able to perfectly distinguish all the Positive and Negative class points correctly. So our goal is the achieve a AUC closest to 1.
 
+<img src='images/ROC_logtrain.png'>
 
+<img src='images/ROC_logtest.png'>
+
+The AUC score for our Decision Tree Model is 0.7878777542642218
+The AUC score for our Tuned Decision Tree Model is 0.8443624822952769
+The AUC score for our Random Forest Tree Model is 0.8357209562284028
+The AUC score for our Tuned Random Forest Tree Model is 0.83723003106272
+The AUC score for our XGBoost Model is 0.8409138333759232
+
+# Conclusion
+
+Out of all the models that were trained, the final model that performed the best is our **Tuned Decision Tree Classifier**.  As we optimized the Decision tree the test accuracy score improved by 7 points. For AUC, the Decision Tree Classifier after optimizing the percentage increases by ~7% on detecting how well it was able to predict the popular songs from the false positive popular songs.
+
+The reason we choose our Tuned Decision Tree's accuracy score of .87 as our metric because we want to know how well the model predicted the popular (true positive) and not popular (true negative) tracks overall. As for our Area Under the Curve it proved to have the highest percentage out of all the models.
+
+**Reccomendations:**
+
+Based on the Decision Tree's feature importance, record labels should focus on artists who specialize in genres like **Rock, Hip-Hop and Rap**  while prioritizing audio features such as **instrumentals, track duration, valence and loudness**. On the other hand, the key signature and the genre Jazz and EDM music does not play into a huge factor on a song's popularity. 
+
+# Next Steps
+
+- Iterate the missing feature information and scaping more audio features from Spotify's API to see if other audio features changes our predictions
+- Scape data from other platforms such as BillBoard, SoundCloud, Apple Music and use classification models to compare their popular audio features
+- Look into various Rock, Hip-Hop, and Rap artists to see who is the most popular based on scapring data from Spotify's API based on their popularity or follow count
