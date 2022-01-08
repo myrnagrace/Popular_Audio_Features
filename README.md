@@ -97,7 +97,7 @@ The model that performed the best is Decision Tree with Hyperparameter Tuning.
 ## Logistic Regression
 Our first model will be logistic regression. Logistic regression's theory is similar to linear regression except it is transformed in a way that the outcome takes a value between 0 and 1. What our logistic model performs is predicting the probability that a song will be popular (P>50) or a song won't be popular (P<50)
 
-<img src='images/logreg_class.png'>
+<img src='images/logreg_class.PNG'>
 <img src='images/logreg_confusion.png'>
 
 Our Logistic Regression model was able to predict the non popular songs well but not the popular song so we moved on to our second model.
@@ -105,14 +105,14 @@ Our Logistic Regression model was able to predict the non popular songs well but
 ## Decision Tree
 The second model we used are decision trees. Decision Trees looks at the data and classifies the data to 1 or more classes. It filters the data by certain features. The issue with this model is that it prone to overfitting as we can see on our classification report. To get a more accurate result we use GridSearch for Hyperparameter Tuning.
 
-<img src='images/decision_1.png'>
+<img src='images/decision_1.PNG'>
 <img src='images/decision_confusion1.png'>
 
 Our training accuracy score is 1 while our test accuracy score is .79 which is a sign of overfitting.
 
 ## Hyperparameter Tuning Decision Tree
 
-<img src='images/decision2.png'>
+<img src='images/decision2.PNG'>
 <img src='images/decision_confusion2.png'>
 
 Accuracy Score: .87
@@ -120,7 +120,7 @@ Accuracy Score: .87
 ## Random Forest
 Random Forest uses bagging and feature randomness when building each individual decision trees.
 
-<img src='images/randomforest1.png'>
+<img src='images/randomforest1.PNG'>
 <img src='images/randomforest_confusion.png'>
 
 Accuracy Score: .86
@@ -128,7 +128,7 @@ Accuracy Score: .86
 ## Hyperparameter Tuning Random Forest
 There wasn't much a difference when tuning the random forest tree since it stuck with the basic parameters from our original random forest model.
 
-<img src='images/randomforest2.png'>
+<img src='images/randomforest2.PNG'>
 <img src='images/randomforest_confusion2.png'>
 
 Accuracy Score: .86 
@@ -136,7 +136,7 @@ Accuracy Score: .86
 ## XGBoost
 Extreme Gradient Boosting
 
-<img src='images/XGBoost1.png'>
+<img src='images/XGBoost1.PNG'>
 <img src='images/XGBoost_confusion.png'>
 
 Accuracy Score: .86
