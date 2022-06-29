@@ -11,7 +11,7 @@ Models Performed:
 - Random Tree Classifier
 - XGBoost
 
-The metrics used to evalute how well the model performed were based on their classification report, ROC and AUC.
+The metrics used to evaluate how well the model performed were based on their classification report, ROC and AUC.
 
 ## Business Problem
 Popular music streaming platforms such as Youtube, Spotify, and SoundCloud has made it easier for musicians of all types to upload music content and share it instantly with audiences world wide. Yet, as a musician it is hard to get your music heard let alone become a top hit. Our analysis offers record labels, artists, and producers determine what qualities they should consider when releasing music on streaming platforms based on Spotify's audio features provided from the given [Data](https://www.kaggle.com/vicsuperman/prediction-of-music-genre). 
